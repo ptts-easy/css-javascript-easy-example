@@ -1,0 +1,14 @@
+.frame {
+    width: 500px;
+}
+.card {
+    width: 350px;
+    height: 350px;
+    position: absolute;
+    top: 94px;
+    left: 66px;
+    z-index: -1;
+    object-fit: cover;
+
+    clip-path: polygon(22% 0, 100% 0, 100% 78%, 78% 100%, 0 100%, 0 22%);
+}
