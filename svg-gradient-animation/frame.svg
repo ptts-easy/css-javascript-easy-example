@@ -12,7 +12,7 @@
       <feOffset dx="15" dy="15" />
     </filter>
     <radialGradient
-      id="lenze_light"
+      id="lenz_light"
       spreadMethod="pad"
     >
       <stop offset="0%" style="stop-color:rgb(255,255,233);stop-opacity:1" />
@@ -75,7 +75,7 @@
     <path 
       id="main_frame" 
       d="M130,343 L281,189 812,189 C812,189 822,189 822,199 L822,727 667,882 C140,879 130,879 130,869 Z"
-      stroke="url(#lenze_light)"
+      stroke="url(#lenz_light)"
       stroke-linecap="round"
       stroke-linejoin="arcs"
       stroke-width="20"
