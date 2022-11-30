@@ -1,8 +1,17 @@
-<svg viewBox="0 0 200 30" 
-  xmlns="http://www.w3.org/2000/svg"
-  xmlns:xlink="http://www.w3.org/1999/xlink">
-  <a xlink:href="https://www.w3schools.com/graphics/" target="_blank">
-    <text x="0" y="15" fill="red">I love SVG!</text>
-  </a>
-  Sorry, your browser does not support inline SVG.
+<svg viewBox="0 0 240 40" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    text {
+      font: italic 12px serif;
+    }
+    tspan {
+      font: bold 10px sans-serif;
+      fill: red;
+    }
+  </style>
+
+  <text x="10" y="30" class="small">
+    You are
+    <tspan>not</tspan>
+    a banana!
+  </text>
 </svg>

@@ -1,0 +1,8 @@
+<svg viewBox="0 0 200 90" 
+  xmlns="http://www.w3.org/2000/svg">
+  <text x="10" y="20" style="fill:red;">Several lines:
+    <tspan x="10" y="45">First line.</tspan>
+    <tspan x="10" y="70">Second line.</tspan>
+  </text>
+  Sorry, your browser does not support inline SVG.
+</svg>
