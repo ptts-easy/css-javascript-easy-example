@@ -1,0 +1,52 @@
+<svg
+  viewBox="0 0 1000 100" 
+  xmlns="http://www.w3.org/2000/svg" 
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  version="1.1">
+  <defs>
+    <filter id="line_001">
+      <feColorMatrix
+        in="SourceGraphic"
+        type="matrix"
+        values="0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0 0
+                1 1 1 1 0" />
+    </filter>
+    <filter id="line_002">
+      <!--Blur effect-->
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="effect_001" />
+    </filter>
+    <filter id="line_003">
+      <!--Blur effect-->
+      <feGaussianBlur in="SourceAlpha" stdDeviation="10" result="effect_001" />
+    </filter>
+     <filter id="line_004" filterUnits="userSpaceOnUse" x="0" y="0" width="200" height="120">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="effect_001" />
+      <feSpecularLighting in="effect_001" surfaceScale="5" specularConstant=".75" specularExponent="20" lighting-color="#bbbbbb" result="effect_002">
+        <fePointLight x="50" y="50" z="20" />
+      </feSpecularLighting>
+      <feComposite in="effect_002" in2="SourceAlpha" operator="in" result="effect_003" />
+      <feComposite in="SourceGraphic" in2="effect_003" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="effect_004" />
+    </filter>
+  </defs>
+  <g>
+    <rect x="10" y="10" width="10" height="80" fill="red" />
+  </g>
+
+  <g transform="translate(30,0)">
+    <rect x="10" y="10" width="10" height="80" fill="red" filter="url(#line_001)"/>
+  </g>
+
+  <g transform="translate(60,0)">
+    <rect x="10" y="10" width="10" height="80" fill="red" filter="url(#line_002)"/>
+  </g>
+
+  <g transform="translate(90,0)">
+    <rect x="10" y="10" width="10" height="80" fill="red" filter="url(#line_003)"/>
+  </g>
+
+  <g transform="translate(120,0)">
+    <rect x="10" y="10" width="10" height="80" fill="red" filter="url(#line_004)"/>
+  </g>
+</svg>
