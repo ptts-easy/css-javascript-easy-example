@@ -1,0 +1,43 @@
+#web_elements {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#web_elements td, #web_elements th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#web_elements tr:nth-child(even){background-color: #f2f2f2;}
+
+#web_elements tr:hover {background-color: #ddd;}
+
+#web_elements th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+
+.fixed_0 {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.button_0:link, .button_0:visited {
+  background-color: green;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.button_0:hover, .button_0:active {
+  background-color: #4CAF50;
+}

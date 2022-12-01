@@ -11,6 +11,15 @@
       <feGaussianBlur stdDeviation="5" />
       <feOffset dx="15" dy="15" />
     </filter>
+
+    <filter id="MyFilter" filterUnits="userSpaceOnUse" x="0" y="0" width="1000" height="1000">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="8" result="blur" />
+      <feSpecularLighting in="blur" surfaceScale="10" specularConstant=".75" specularExponent="20" lighting-color="#bbbbbb" result="specOut">
+        <fePointLight x="-10000" y="-10000" z="20000" />
+      </feSpecularLighting>
+      <feComposite in="SourceGraphic" in2="specOut" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="litPaint" />
+    </filter>
+
     <radialGradient
       id="lenz_light"
       spreadMethod="pad"
@@ -80,7 +89,8 @@
       stroke-linejoin="arcs"
       stroke-width="20"
       fill="none"
+      filter="url(#MyFilter)"
       >
-    </path>    
+    </path>
   </g>
 </svg>
