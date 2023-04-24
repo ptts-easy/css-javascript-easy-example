@@ -13,16 +13,16 @@
 
     <div style="position: relative;">
         <p>Whole Image</p>
-        <object data="./multi-image.svg#svgView(viewBox(0,0, 300,100))" type="image/svg+xml" style="width: 300px; height: 100px;"></object>
+        <object data="./multi-image.svg#svgView(viewBox(0,0, 240,80))" type="image/svg+xml" style="width: 300px; height: 100px;"></object>
     </div>
     <div style="position: relative;">
         <h2>Region</h2>        
         <span>First</span>
-        <object data="./multi-image.svg#svgView(viewBox(0,0, 100,100))" type="image/svg+xml" style="width: 100px; height: 100px;"></object>
+        <object data="./multi-image.svg#svgView(viewBox(0,0, 80,80))" type="image/svg+xml" style="width: 100px; height: 100px;"></object>
         <span>Second</span>
-        <object data="./multi-image.svg#svgView(viewBox(100,0, 100,100))" type="image/svg+xml" style="width: 100px; height: 100px;"></object>
+        <object data="./multi-image.svg#svgView(viewBox(80,0, 80,80))" type="image/svg+xml" style="width: 100px; height: 100px;"></object>
         <span>Third</span>
-        <object data="./multi-image.svg#svgView(viewBox(200,0, 100,100))" type="image/svg+xml" style="width: 100px; height: 100px;"></object>
+        <object data="./multi-image.svg#svgView(viewBox(160,0, 80,80))" type="image/svg+xml" style="width: 100px; height: 100px;"></object>
     </div>
     <div style="position: relative;">
         <p>Whole Image</p>
@@ -36,6 +36,76 @@
         <object data="./multi-image1.svg#rain" type="image/svg+xml" style="width: 100px; height: 100px;"></object>
         <span>Third</span>
         <object data="./multi-image1.svg#sun" type="image/svg+xml" style="width: 100px; height: 100px;"></object>
+    </div>
+    <div style="position: relative;">
+        <p>Import SVG (img)</p>
+        <img src="./apple.svg" style="width: 100px; height: 100px;"></img>
+        <p>Import SVG (object)</p>
+        <object data="./apple.svg" type="image/svg+xml" style="width: 100px; height: 100px;"></object>
+        <p>Import SVG (svg)</p>
+        <svg xmlns="http://www.w3.org/2000/svg" style="width: 100px; height: 100px;">
+          <image href="./apple.svg" x="0" y="0" height="100" width="100" />
+        </svg>
+        <p>Import SVG (embed)</p>
+        <embed src="./apple.svg" style="width: 100px; height: 100px;"></embed>
+        <p>Import SVG (div)</p>
+        <div style="background:url(./apple.svg); width:100px; height:100px;"></div>
+        <p>Import SVG (iframe)</p>
+        <iframe src="./apple.svg" width="100px" height="100px"></iframe>
+    </div>
+    <div style="position: relative;">
+        <p>Total SVG</p>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 240 160" style="width: 240px; height: 160px;">
+          <g id="g_001" transform="translate(0,0)">
+            <circle cx="40" cy="40" r="40" stroke="black" stroke-width="2" fill="red" />
+          </g>
+          <g id="g_002" transform="translate(80,0)">
+            <rect width="80" height="80" style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)" />
+          </g>
+          <g id="g_003" transform="translate(160,0)">
+            <line x1="40" y1="0" x2="0" y2="40" style="stroke:rgb(255,0,0);stroke-width:2" />
+            <line x1="40" y1="0" x2="80" y2="40" style="stroke:rgb(255,0,0);stroke-width:2" />
+            <line x1="0" y1="40" x2="80" y2="40" style="stroke:rgb(255,0,0);stroke-width:2" />
+          </g>
+          <symbol id="sym_001" viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="40" stroke="black" stroke-width="2" fill="red" />
+          </symbol>
+          <symbol id="sym_002" viewBox="0 0 80 80">
+            <rect width="80" height="80" style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)" />
+          </symbol>
+          <symbol id="sym_003" viewBox="0 0 80 80">
+            <line x1="40" y1="0" x2="0" y2="40" style="stroke:rgb(255,0,0);stroke-width:2" />
+            <line x1="40" y1="0" x2="80" y2="40" style="stroke:rgb(255,0,0);stroke-width:2" />
+            <line x1="0" y1="40" x2="80" y2="40" style="stroke:rgb(255,0,0);stroke-width:2" />
+          </symbol>
+          <use href="#sym_001" x="0" y="80" width="80" height="80" style="opacity:1.0" />
+          <use href="#sym_002" x="80" y="80" width="80" height="80" style="opacity:0.8" />
+          <use href="#sym_003" x="160" y="80" width="80" height="80" style="opacity:0.6" />
+        </svg>
+    </div>
+    <div style="position: relative;">
+        <p>Use Group</p>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 240 80" style="width: 240px; height: 80px;">
+          <use href="#g_001" viewBox(0,0, 80,80) style="opacity:1.0" />
+          <use href="#g_002" viewBox(80,0, 80,80) style="opacity:0.8" />
+          <use href="#g_003" viewBox(160,0, 80,80) style="opacity:0.6" />
+        </svg>
+        <p>Use Symbol</p>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 240 80" style="width: 240px; height: 80px;">
+          <use href="#sym_001" x="0" y="0" width="80" height="80" style="opacity:1.0" />
+          <use href="#sym_002" x="80" y="0" width="80" height="80" style="opacity:0.8" />
+          <use href="#sym_003" x="160" y="0" width="80" height="80" style="opacity:0.6" />
+        </svg>
+        <p>Use SVG</p>
+        <svg xmlns="http://www.w3.org/2000/svg" style="width: 100px; height: 100px;">
+          <image id="aaa" href="./multi.svg" x="0" y="0" height="100" width="100" />
+        </svg>
+        <svg version="1.1" viewBox="0 0 240 80" style="width: 240px; height: 80px;">
+          <use href="#eg_001" x="0" y="0" width="80" height="80" style="opacity:1.0" />
+          <use href="./multi.svg#esym_002" x="80" y="0" width="80" height="80" style="opacity:0.8" />
+          <use href="./multi.svg#esym_003" x="160" y="0" width="80" height="80" style="opacity:0.6" />        
+        </svg>
+        <object data="./multi.svg#esym_003" type="image/svg+xml" style="width: 100px; height: 100px;"></object>
     </div>
 </body>
 </html>

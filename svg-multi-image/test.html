@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>svg-multi-image</title>
+    <link rel="stylesheet" href="../my-style.css">
+    <link rel="stylesheet" href="my-style.css">
+    <script src="my-script.js"></script>
+</head>
+<body>
+    <div style="position: relative;">
+        <p>Import SVG (img)</p>
+        <img src="./test.svg" style="width: 100px; height: 100px;">
+        </img>
+        <p>Import SVG (object)</p>
+        <object data="./test.svg" type="image/svg+xml" style="width: 100px; height: 100px;">
+          <script type="text/javascript">
+              var objectDocument = document.getElementsByTagName("object")[0];
+              console.log("== object ==");
+              console.log(objectDocument);
+              console.log(objectDocument.contentDocument);
+//              var svgs = objectDocument.getElementsByTagName("symbol");
+//              console.log(svgs);
+          </script>
+        </object>
+        <p>Import SVG (svg)</p>
+        <svg xmlns="http://www.w3.org/2000/svg" style="width: 100px; height: 100px;">
+          <image id="svg_img" href="./test.svg" x="0" y="0" height="100" width="100" />
+          <script type="text/javascript">
+              var image = document.getElementById("svg_img");
+              console.log("== svg ==");
+              console.log(image);
+//              console.log(image.contentDocument);
+          </script>          
+        </svg>
+        <p>Import SVG (embed)</p>
+        <embed src="./test.svg" style="width: 100px; height: 100px;"></embed>
+        <p>Import SVG (iframe)</p>
+        <iframe src="./test.svg" width="100px" height="100px">
+        </iframe>
+    </div>
+    <script type="text/javascript">
+        var imgDocument = document.getElementsByTagName("img")[0];
+        console.log("== img ==");
+        console.log(imgDocument);
+    </script>
+    <script type="text/javascript">
+        var embedDocument = document.getElementsByTagName("embed")[0];
+        console.log("== embed ==");
+        console.log(embedDocument);
+    </script>
+    <script type="text/javascript">
+        var iframeDocument = document.getElementsByTagName("iframe")[0];
+        console.log("== iframe ==");
+        console.log(iframeDocument);
+        var svgs = iframeDocument.getElementsByTagName("svg");
+        console.log(svgs);
+    </script>
+</body>
+</html>
+<!--
+ var mySVG = document.getElementById("SVG");
+ var svgDoc;
+ mySVG.addEventListener("load",function() {
+      svgDoc = mySVG.contentDocument;
+      alert("SVG contentDocument Loaded!");
+ }, false);
+
+   var fixture = document.getElementById('qunit-fixture');
+
+  var iframe = document.createElement('iframe');
+  var html = '<body><div id="foo">bar</div></body>';
+  fixture.appendChild(iframe);
+
+iframe.addEventListener("load", function (event) {
+    updateNavigation(manifest_url).then(function () {
+      try {
+        try {
+          history.pushState(null, null, "./?manifest=true&href=" + manifest_url + "&document=" + iframe.contentDocument.location.href);
+          injectInIframe();
+        }
+        catch (err) {
+          history.pushState(null, null, "./?manifest=true&href=" + manifest_url + "&document=" + iframe.src);
+        }
+      }
+      catch (err) {
+        console.log("Could not update history");
+      }
+    }).catch(function () { });
+  });
+
+
+<object data="blob:http://my-domain.com/resource-id: hidden;">
+  #document
+    <html>        
+      <body>
+        <embed width="100%" height="100%" name="plugin" id="plugin" src="blob:http://my-domain.com/resource-id" type="application/pdf" internalinstanceid="110">
+       </body>
+    </html>
+  </object>
+$('object').contentDocument.body.children[0]  
+-->

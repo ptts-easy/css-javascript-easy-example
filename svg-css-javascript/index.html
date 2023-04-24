@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>svg-css-javascript</title>
+    <link rel="stylesheet" href="../my-style.css">
+    <link rel="stylesheet" href="my-style.css">
+    <script src="my-script.js"></script>
+    <style>
+        #mycircle{
+            fill:green;
+        }
+    </style>
+</head>
+<body>
+    <a class="fixed_0 button_0" href="../index.html">main</a>
+
+    <div style="position: relative;">
+        <p>Css in Internal SVG</p>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 500 100" style="width:500px; height:100px">
+            <style>
+                .rrect{
+                    fill:red;
+                }
+            </style>
+            <circle id="mycircle" cx="50" cy="50" r="50"/>
+            <rect class="rrect" x="100" y="0" width="100" height="100" rx="10"/>
+            <rect x="200" y="0" width="100" height="100" style="fill:blue;"/>
+            <rect x="300" y="0" width="100" height="100" fill="yellow"/>
+        </svg>
+    </div>
+    <div style="position: relative;">
+        <p>Css in External SVG</p>
+        <object data="./css-image.svg" type="image/svg+xml" style="width:500px; height:100px"></object>
+    </div>
+    <div style="position: relative;">
+        <p>Javascript in Internal SVG</p>
+        <p>press w,a,s,d ...</p>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 500 100" style="width:500px; height:100px">
+          <circle cx="5" cy="5" r="5" fill="red" />
+          <script type="text/javascript">
+              console.log("Javascript in Internal SVG");
+
+              var KEY = { w:87, a:65, s:83, d:68 };
+              var moveSpeed = 5;
+              var circle = document.getElementsByTagName("circle")[0];
+              var x = circle.getAttribute('cx')*1, y = circle.getAttribute('cy')*1;
+              document.documentElement.addEventListener('keydown',function(evt){
+                console.log("keydown in Javascript in Internal SVG");
+
+                switch (evt.keyCode){
+                  case KEY.w:
+                    circle.setAttribute('cy',y-=moveSpeed);
+                    // Alternatively:
+                    // circle.cy.baseVal.value = (y-=moveSpeed);
+                    break;
+                  case KEY.s:
+                    circle.setAttribute('cy',y+=moveSpeed);
+                    break;
+                  case KEY.a:
+                    circle.setAttribute('cx',x-=moveSpeed);
+                    break;
+                  case KEY.d:
+                    circle.setAttribute('cx',x+=moveSpeed);
+                    break;
+                }
+              },false);
+          </script>
+        </svg>
+    </div>
+    <div style="position: relative;">
+        <p>Javascript in External SVG</p>
+        <object data="./javascript-image.svg" type="image/svg+xml" style="width:500px; height:100px"></object>
+    </div>
+</body>
+</html>
